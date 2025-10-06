@@ -123,7 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="first_lecture.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="parent_children.cpp" />
+    <ClCompile Include="point.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
