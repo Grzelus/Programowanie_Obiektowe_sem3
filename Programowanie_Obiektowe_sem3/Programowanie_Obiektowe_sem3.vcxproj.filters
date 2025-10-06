@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Programowanie_Obiektowe_sem3.cpp">
+    <ClCompile Include="first_lecture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
