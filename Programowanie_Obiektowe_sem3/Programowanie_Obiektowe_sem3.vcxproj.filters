@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="verboseobject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="parent_children.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="verboseobject.cpp" />
     <ClCompile Include="parent_children.cpp" />
     <ClCompile Include="point.cpp" />
   </ItemGroup>
