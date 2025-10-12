@@ -1,58 +1,69 @@
-﻿#include <iostream>
-#include <vector>
+#include <iostream>
 #include <math.h>
 
-struct Complex {
-	double rel;
-	double img;
-	double modulus;
-	//Konstructor
-	Complex(double r, double i) : rel(r), img(i) {
-		this->modulus = this->compute_modulus();
+struct BinomialSolver {
+	double a, b, c;
+	double delta;
+	double x1 = 0;
+	double x2 = 0;
+
+	void claculate_delta() {
+		delta = b * b - 4 * a * c;
 	}
 
-	// Metody
-	Complex operator+ (const Complex& number){
-		return Complex(rel + number.rel, img + number.img);
+	void find_solutions() {
+		if (delta > 0) {
+			x1 = (-b - sqrt(delta)) / 2;
+			x2 = (-b + sqrt(delta)) / 2;
+		}
+		else if (delta == 0) {
+			x1 = -b / 2;
+		}
+	};
+	// Constructor
+	BinomialSolver(double a, double b, double c) : a(a), b(b), c(c) {
+		this->claculate_delta();
+		this->find_solutions();
 	}
-	Complex operator* (const Complex& number) {
-		return Complex(rel * number.rel - img * number.img, rel * number.img + img * number.rel);
-	}
-	double compute_modulus() {
-		return (sqrt(rel * rel + img * img));
-	}
-	void display_props() {
-		std::cout << rel << " + " << img << "i\nmodulus: "<< modulus << std::endl;
-	}
-};
-
-int main(void) {
-	//Zmienne do przetrzymania danych użytkownika
-	double r, i;
-	std::vector<Complex> numbers;
-
-	while (std::cin >> r >> i) {
-		numbers.emplace_back(r, i);
-	}
-	
-	// Suma i Iloczyn liczb zespolonych
-	Complex sum(0, 0);
-	Complex product(1, 0);
-	double best_modulus = numbers[0].modulus;
-
-
-	for (const auto& complex : numbers) {
-		sum =sum + complex;
-		product = product * complex;
-
-		if (complex.modulus > best_modulus) {
-			best_modulus = complex.modulus;
+	void display_solusions() {
+		if (delta > 0) {
+			std::cout << x1 << ", " << x2 << std::endl;
+		}
+		else if (delta == 0) {
+			std::cout << x1 << std::endl;
+		}
+		else {
+			std::cout << "There's no solusions" << std::endl;
 		}
 	}
-	sum.display_props();
-	product.display_props();
-	std::cout << best_modulus << std::endl;
+	void display_larger_solution() {
+		if (delta < 0) {
+			std::cout << "There's no solusions" <<std::endl;
+		}
+		else if (delta == 0) {
+			std::cout << "There's only one solution: " << x1 << std::endl;
+		}
+		else {
+			if (x1 < x2) {
+				std::cout << x2 << std::endl;
+			}
+			else {
+				std::cout << x1 << std::endl;
+			}
+		}
+	}
 
+};
 
+int main() {
+	BinomialSolver first(1, -4, -5);
+	BinomialSolver second(1, -6, 9);
+	BinomialSolver third(1, 0, 4);
+	first.display_solusions();
+	first.display_larger_solution();
+	second.display_solusions();
+	second.display_larger_solution();
+	third.display_solusions();
+	third.display_larger_solution();
 	return 0;
 }

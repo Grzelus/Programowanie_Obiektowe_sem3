@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binomialSolver.cpp" />
+    <ClCompile Include="complex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="verboseobject.cpp" />
     <ClCompile Include="parent_children.cpp" />
